@@ -1,0 +1,23 @@
+version: '3.9'
+
+x-service:
+  &default-service
+  image: ghcr.io/gifnksm/mdbook-ja
+  init: true
+  volumes: [".:/book:rw"]
+  network_mode: "host"
+  user: "${UID}:${GID}"
+
+services:
+  mdbook:
+    <<: *default-service
+    entrypoint: ["mdbook"]
+    command: ["serve"]
+
+  mdbook-mermaid:
+    <<: *default-service
+    entrypoint: ["mdbook-mermaid"]
+
+  markdownlint:
+    <<: *default-service
+    entrypoint: ["markdownlint"]
