@@ -36,14 +36,19 @@ watch:
 serve: mdbook-serve
 	$(DOCKER_COMPOSE) up mdbook || true
 
-## Run all linters on book source files
-.PHONY: lint
-lint: lint-markdown
+## Run linters/tests on book source files
+.PHONY: check
+check: check-markdown check-mdbook
 
 ## Run markdownlint on book source files
-.PHONY: lint-markdown
-lint-markdown:
+.PHONY: check-markdown
+check-markdown:
 	$(RUN) markdownlint .
+
+## Run tests that Rust codes in a book compile without errors
+.PHONY: check-mdbook
+check-mdbook:
+	$(RUN) mdbook test
 
 ## Fix basic errors in book source files
 .PHONY: fix
@@ -53,15 +58,6 @@ fix: fix-markdown
 .PHONY: fix-markdown
 fix-markdown:
 	$(RUN) markdownlint --fix .
-
-## Run all tests on book source files
-.PHONY: test
-test: test-mdbook
-
-## Test that Rust codes in a book compile without errors
-.PHONY: test-mdbook
-test-mdbook:
-	$(RUN) mdbook test
 
 ## Print this message
 help:
