@@ -33,7 +33,7 @@ watch:
 
 ## Serve a book at http://localhost:3000/, and rebuild it on changes
 .PHONY: serve
-serve: mdbook-serve
+serve:
 	$(DOCKER_COMPOSE) up mdbook || true
 
 ## Run linters/tests on book source files
