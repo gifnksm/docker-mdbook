@@ -2,7 +2,7 @@
 
 This is example book.
 
-[mermaid.js] is supported!
+[mermaid.js] is supported.
 
 ```mermaid
 graph TD;

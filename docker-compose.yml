@@ -21,3 +21,7 @@ services:
   markdownlint:
     <<: *default-service
     entrypoint: ["markdownlint"]
+
+  textlint:
+    <<: *default-service
+    entrypoint: ["textlint"]

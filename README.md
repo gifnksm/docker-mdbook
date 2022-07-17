@@ -1,7 +1,7 @@
 # mdbook-ja-template
 
 [mdBook] で日本語の技術文書を書くためのテンプレートです。
-Markdown で書かれた文書を HTML に変換し、ウェブブラウザから読むことができます。
+Markdown の文書を HTML に変換し、ウェブブラウザから読むことができます。
 
 本テンプレートは以下を含みます。
 
@@ -11,6 +11,7 @@ Markdown で書かれた文書を HTML に変換し、ウェブブラウザか�
   * [mermaid.js] によるグラフ描画 ([mdbook-mermaid] を使用)
 * 文書の記載内容を検証するためのチェック機能
   * Markdown ファイルの構文チェック機能 ([markdownlint] を使用)
+  * 文書の校正機能 ([textlint] を使用)
 * GitHub Actions での自動ビルド、自動テスト、および、GitHub Pages への自動デプロイ機能
 
 生成された HTML ファイルは GitHub Actions の実行により GitHub Pages へデプロイされます。
@@ -30,9 +31,11 @@ Markdown で書かれた文書を HTML に変換し、ウェブブラウザか�
 | `check`          | ソースファイルに対する各種チェック                     |
 | `check-markdown` | `.md` ファイルの構文チェック                           |
 | `check-mdbook`   | ドキュメント中の Rust ソースコードのコンパイルチェック |
+| `check-textlint` | ドキュメントの文章の更正チェック                       |
 | `clean`          | ビルド成果物の削除                                     |
 | `fix`            | ソースファイル中の修正可能な誤りの修正                 |
-| `fix-markdown`   | `.md` ファイルの修正                                   |
+| `fix-markdown`   | `.md` ファイルの修正 (markdownlint)                    |
+| `fix-textlint`   | `.md` ファイルの修正 (textlint)                        |
 | `help`           | ヘルプの表示                                           |
 | `serve`          | HTML ファイルをホストするサーバの起動                  |
 | `watch`          | ソースコード変更の監視 & 変更時の自動再ビルド          |
@@ -43,3 +46,4 @@ Markdown で書かれた文書を HTML に変換し、ウェブブラウザか�
 [mdbook-mermaid]: https://github.com/badboy/mdbook-mermaid
 [Makefile]: ./Makefile
 [markdownlint]: https://github.com/DavidAnson/markdownlint
+[textlint]: https://textlint.github.io/
