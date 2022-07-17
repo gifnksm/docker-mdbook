@@ -29,12 +29,12 @@ clean:
 ## Watch book source files and rebuild a book on changes
 .PHONY: watch
 watch:
-	$(RUN) mdbook watch
+	$(RUN) mdbook watch || true
 
 ## Serve a book at http://localhost:3000/, and rebuild it on changes
 .PHONY: serve
 serve: mdbook-serve
-	$(DOCKER_COMPOSE) up mdbook
+	$(DOCKER_COMPOSE) up mdbook || true
 
 ## Run all linters on book source files
 .PHONY: lint
@@ -44,6 +44,15 @@ lint: lint-markdown
 .PHONY: lint-markdown
 lint-markdown:
 	$(RUN) markdownlint .
+
+## Fix basic errors in book source files
+.PHONY: fix
+fix: fix-markdown
+
+## Fix basic errors in book source files with markdownlint
+.PHONY: fix-markdown
+fix-markdown:
+	$(RUN) markdownlint --fix .
 
 ## Run all tests on book source files
 .PHONY: test
