@@ -38,12 +38,17 @@ serve:
 
 ## Run linters/tests on book source files
 .PHONY: check
-check: check-markdown check-mdbook
+check: check-markdown check-textlint check-mdbook
 
 ## Run markdownlint on book source files
 .PHONY: check-markdown
 check-markdown:
 	$(RUN) markdownlint .
+
+## Run textlint on book source files
+.PHONY: check-textlint
+check-textlint:
+	$(RUN) textlint .
 
 ## Run tests that Rust codes in a book compile without errors
 .PHONY: check-mdbook
@@ -58,6 +63,12 @@ fix: fix-markdown
 .PHONY: fix-markdown
 fix-markdown:
 	$(RUN) markdownlint --fix .
+
+## Fix basic errors in book source files with textlint
+.PHONY: fix-textlint
+fix-textlint:
+	$(RUN) textlint --fix .
+
 
 ## Print this message
 help:
