@@ -57,7 +57,7 @@ check-mdbook:
 
 ## Fix basic errors in book source files
 .PHONY: fix
-fix: fix-markdown
+fix: fix-markdown fix-textlint
 
 ## Fix basic errors in book source files with markdownlint
 .PHONY: fix-markdown
