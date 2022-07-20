@@ -10,11 +10,12 @@ SHELL := bash
 export UID = $(shell id -u)
 export GID = $(shell id -g)
 
-DOCKER_COMPOSE = docker compose
+DOCKER_COMPOSE ?= docker compose
 RUN = $(DOCKER_COMPOSE) run --rm
 
 .PHONY: default
 default: build
+
 
 ## Build a book from source files (default target)
 .PHONY: build
@@ -36,6 +37,29 @@ watch:
 serve:
 	$(DOCKER_COMPOSE) up mdbook || true
 
+
+## Pull the latest version of Docker images
+.PHONY: pull
+pull:
+	$(DOCKER_COMPOSE) pull
+
+
+## Setup host environment for the book
+.PHONY: setup-host
+setup-host: .env package.json package-lock.json npm-install
+
+.env: FORCE
+	echo "UID=$(UID)" > $@
+	echo "GID=$(GID)" >> $@
+
+package.json package-lock.json: FORCE
+	$(RUN) sh -c "cp /npm/$@ $@"
+
+.PHONY: npm-install
+npm-install:
+	npm install
+
+
 ## Run linters/tests on book source files
 .PHONY: check
 check: check-markdown check-textlint check-mdbook
@@ -54,6 +78,7 @@ check-textlint:
 .PHONY: check-mdbook
 check-mdbook:
 	$(RUN) mdbook test
+
 
 ## Fix basic errors in book source files
 .PHONY: fix
@@ -90,3 +115,6 @@ help:
 	} \
 	' $(MAKEFILE_LIST) | sort -u
 	@printf "\n"
+
+.PHONY: FORCE
+FORCE:

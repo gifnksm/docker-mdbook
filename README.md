@@ -38,6 +38,7 @@ Markdownの文書をHTMLに変換し、ウェブブラウザから読むこと�
 | `fix-textlint`   | `.md` ファイルの修正 (textlint)                        |
 | `help`           | ヘルプの表示                                           |
 | `serve`          | HTML ファイルをホストするサーバの起動                  |
+| `setup-host`     | ホスト環境で必要な設定ファイルとツールを設定します     |
 | `watch`          | ソースコード変更の監視 & 変更時の自動再ビルド          |
 
 [mdBook]: https://github.com/rust-lang/mdBook
