@@ -1,7 +1,7 @@
 # mdbook-ja-template
 
 [mdBook] で日本語の技術文書を書くためのテンプレートです。
-Markdown の文書を HTML に変換し、ウェブブラウザから読むことができます。
+Markdownの文書をHTMLに変換し、ウェブブラウザから読むことができます。
 
 本テンプレートは以下を含みます。
 
@@ -10,16 +10,16 @@ Markdown の文書を HTML に変換し、ウェブブラウザから読むこ�
 * [mdBook] の拡張機能
   * [mermaid.js] によるグラフ描画 ([mdbook-mermaid] を使用)
 * 文書の記載内容を検証するためのチェック機能
-  * Markdown ファイルの構文チェック機能 ([markdownlint] を使用)
+  * Markdownファイルの構文チェック機能 ([markdownlint] を使用)
   * 文書の校正機能 ([textlint] を使用)
-* GitHub Actions での自動ビルド、自動テスト、および、GitHub Pages への自動デプロイ機能
+* GitHub Actionsでの自動ビルド、自動テスト、および、GitHub Pagesへの自動デプロイ機能
 
-生成された HTML ファイルは GitHub Actions の実行により GitHub Pages へデプロイされます。
-デプロイされたページの URL は以下の形式になります。
+生成されたHTMLファイルはGitHub Actionsの実行によりGitHub Pagesへデプロイされます。
+デプロイされたページのURLは以下の形式になります。
 
 `https://<username>.github.io/<repository>`
 
-本テンプレートから生成された HTML は <https://gifnksm.github.io/mdbook-ja-template/> でホストされています。
+本テンプレートから生成されたHTMLは <https://gifnksm.github.io/mdbook-ja-template/> でホストされています。
 
 ## [Makefile] のターゲット一覧
 

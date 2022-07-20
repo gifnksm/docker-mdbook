@@ -13,7 +13,7 @@
 \\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\]
 ```
 
-\\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\]
+\\[\mu = \frac{1}{N} \sum_{i=0} x_i \\]
 
 [mermaid.js] でグラフを描画できます。
 
