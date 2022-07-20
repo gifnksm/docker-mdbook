@@ -40,23 +40,37 @@ serve:
 
 ## Pull the latest version of Docker images
 .PHONY: pull
-pull:
+pull: run-docker-compose-pull
+
+.PHONY: run-docker-compose-pull
+run-docker-compose-pull:
 	$(DOCKER_COMPOSE) pull
 
+# if package.json exist, pull target invokes install-lint-tools after run-docker-compose-pull
+ifneq ("$(wildcard package.json)", "")
+pull: install-lint-tools
+install-lint-tools: run-docker-compose-pull
+endif
 
-## Setup host environment for the book
-.PHONY: setup-host
-setup-host: .env package.json package-lock.json npm-install
+
+## Setup config files for Docker Compose
+.PHONY: setup-docker-compose
+setup-docker-compose: .env
 
 .env: FORCE
 	echo "UID=$(UID)" > $@
 	echo "GID=$(GID)" >> $@
 
+
+## Install lint tools to host environment
+.PHONY: install-lint-tools
+install-lint-tools: package.json package-lock.json run-npm-install
+
 package.json package-lock.json: FORCE
 	$(RUN) sh -c "cp /npm/$@ $@"
 
-.PHONY: npm-install
-npm-install:
+.PHONY: run-npm-install
+run-npm-install: package.json package-lock.json
 	npm install
 
 
@@ -105,7 +119,7 @@ help:
 			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
 			gsub("\\\\", "", helpCommand); \
 			gsub(":+$$", "", helpCommand); \
-			printf "  \x1b[32;01m%-16s\x1b[0m %s\n", helpCommand, helpMessage; \
+			printf "  \x1b[32;01m%-24s\x1b[0m %s\n", helpCommand, helpMessage; \
 		} \
 	} \
 	{ \

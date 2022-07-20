@@ -1,9 +1,7 @@
-# mdbook-ja-template
+# はじめに
 
-[mdBook]で日本語の技術文書を書くためのテンプレートです。
+この文章では[mdBook]で日本語の技術文書を書くためのテンプレート[mdbook-ja-template]について説明します。
 このテンプレートを使うことで、 Markdownの文書をHTMLに変換し、ウェブサイトとして公開できます。
-
-mdbook-ja-templateの使い方については、[ユーザーズガイド]を参照してください。
 
 ## 特徴
 
@@ -38,7 +36,7 @@ mdbook-ja-templateはオープンソースプロジェクトで、ソースコ�
 mdbook-ja-templateは[Creative Commons Zero v1.0 Universal]ライセンスで配布されています。
 
 [mdBook]: https://github.com/rust-lang/mdBook
-[ユーザーズガイド]: https://gifnksm.github.io/mdbook-ja-template/
+[mdbook-ja-template]: https://github.com/gifnksm/mdbook-ja-template
 [textlint]: https://textlint.github.io/
 [markdownlint]: https://github.com/DavidAnson/markdownlint
 [GitHub]: https://github.com/gifnksm/mdbook-ja-template
