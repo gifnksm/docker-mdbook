@@ -25,3 +25,7 @@ services:
   textlint:
     <<: *default-service
     entrypoint: ["textlint"]
+
+  sh:
+    <<: *default-service
+    entrypoint: ["sh"]
