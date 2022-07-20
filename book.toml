@@ -1,8 +1,8 @@
 [book]
-authors = ["Your Name"]
-src = "src"
-title = "Your book title"
+authors = ["gifnksm <makoto.nksm+github@gmail.com>"]
+title = "mdbook-ja-templateユーザーズガイド"
 language = "ja"
+src = "src"
 multilingual = false
 
 [output.html]
