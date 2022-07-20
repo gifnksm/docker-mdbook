@@ -1,19 +1,18 @@
 [book]
-authors = []
+authors = ["Your Name"]
+src = "src"
+title = "Your book title"
 language = "ja"
 multilingual = false
-src = "src"
+
+[output.html]
+mathjax-support = true
+additional-js = ["js/mermaid.min.js", "js/mermaid-init.js"]
+git-repository-url = "https://github.com/gifnksm/mdbook-ja-template"
+edit-url-template = "https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}"
+site-url = "/mdbook-ja-template/"
 
 [preprocessor]
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
-
-[output]
-
-[output.html]
-additional-js = ["js/mermaid.min.js", "js/mermaid-init.js"]
-mathjax-support = true
-git-repository-url = "https://github.com/gifnksm/mdbook-ja-template"
-edit-url-template = "https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}"
-site-url = "/mdbook-ja-template/"

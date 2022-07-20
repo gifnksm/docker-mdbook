@@ -1,20 +1,22 @@
 {
-    "rules": {
-        "preset-ja-technical-writing": true,
-        "doubled-spaces": true,
-        "footnote-order": true,
-        "no-empty-section": true,
-        "no-mixed-zenkaku-and-hankaku-alphabet": {
-            "prefer": "半角"
-        },
-        "period-in-list-item": true,
-        "prefer-tari-tari": true,
-        "ja-hiragana-keishikimeishi": true,
-        "ja-hiragana-fukushi": true,
-        "ja-hiragana-hojodoushi": true,
-        "ja-no-orthographic-variants": true,
-        "@textlint-rule/no-duplicate-abbr": true,
-        "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
-        "@textlint-ja/no-synonyms": true
-    }
+  "filters": {},
+  "rules": {
+    "@textlint-ja/no-insert-dropping-sa": true,
+    "@textlint-ja/no-synonyms": true,
+    "@textlint-rule/no-duplicate-abbr": true,
+    "doubled-spaces": true,
+    "footnote-order": true,
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-hiragana-keishikimeishi": true,
+    "ja-no-orthographic-variants": true,
+    "no-empty-section": true,
+    "no-mixed-zenkaku-and-hankaku-alphabet": {
+      "prefer": "半角"
+    },
+    "period-in-list-item": true,
+    "prefer-tari-tari": true,
+    "preset-ja-spacing": true,
+    "preset-ja-technical-writing": true
+  }
 }
