@@ -5,6 +5,8 @@
 
 mdbook-ja-templateの使い方については、[ユーザーズガイド]を参照してください。
 
+<!-- ANCHOR: body -->
+
 ## 特徴
 
 mdbook-ja-templateの特徴を説明します。
@@ -45,3 +47,5 @@ mdbook-ja-templateは[Creative Commons Zero v1.0 Universal]ライセンスで配
 [GitHub]: https://github.com/gifnksm/mdbook-ja-template
 [GitHubのIssueトラッカー]: https://github.com/gifnksm/mdbook-ja-template/issues
 [Creative Commons Zero v1.0 Universal]: https://creativecommons.org/publicdomain/zero/1.0/
+
+<!-- ANCHOR_END: body -->
