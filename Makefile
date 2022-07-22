@@ -71,7 +71,7 @@ package.json package-lock.json: FORCE
 
 .PHONY: run-npm-install
 run-npm-install: package.json package-lock.json
-	npm install
+	npm ci
 
 
 ## Run linters/tests on book source files
