@@ -19,32 +19,36 @@ default: build
 
 ## Build a book from source files (default target)
 .PHONY: build
-build:
+build: run-docker-compose-build
 	$(RUN) mdbook build
 
 ## Delete a built book
 .PHONY: clean
-clean:
+clean: run-docker-compose-build
 	$(RUN) mdbook clean
 
 ## Watch book source files and rebuild a book on changes
 .PHONY: watch
-watch:
+watch: run-docker-compose-build
 	$(RUN) mdbook watch || true
 
 ## Serve a book at http://localhost:3000/, and rebuild it on changes
 .PHONY: serve
-serve:
+serve: run-docker-compose-build
 	$(DOCKER_COMPOSE) up mdbook || true
 
 
 ## Pull the latest version of Docker images
 .PHONY: pull
-pull: run-docker-compose-pull
+pull: run-docker-compose-pull-build
 
-.PHONY: run-docker-compose-pull
-run-docker-compose-pull:
-	$(DOCKER_COMPOSE) pull
+.PHONY: run-docker-compose-build
+run-docker-compose-build:
+	$(DOCKER_COMPOSE) build
+
+.PHONY: run-docker-compose-pull-build
+run-docker-compose-pull-build:
+	$(DOCKER_COMPOSE) build --pull
 
 # if package.json exist, pull target invokes install-lint-tools after run-docker-compose-pull
 ifneq ("$(wildcard package.json)", "")
@@ -66,7 +70,7 @@ setup-docker-compose: .env
 .PHONY: install-lint-tools
 install-lint-tools: package.json package-lock.json run-npm-install
 
-package.json package-lock.json: FORCE
+package.json package-lock.json: run-docker-compose-build FORCE
 	$(RUN) sh -c "cp /npm/$@ $@"
 
 .PHONY: run-npm-install
@@ -80,17 +84,17 @@ check: build check-markdown check-textlint check-mdbook
 
 ## Run markdownlint on book source files
 .PHONY: check-markdown
-check-markdown:
+check-markdown: run-docker-compose-build
 	$(RUN) markdownlint .
 
 ## Run textlint on book source files
 .PHONY: check-textlint
-check-textlint:
+check-textlint: run-docker-compose-build
 	$(RUN) textlint .
 
 ## Run tests that Rust codes in a book compile without errors
 .PHONY: check-mdbook
-check-mdbook:
+check-mdbook: run-docker-compose-build
 	$(RUN) mdbook test
 
 
@@ -100,12 +104,12 @@ fix: fix-markdown fix-textlint
 
 ## Fix basic errors in book source files with markdownlint
 .PHONY: fix-markdown
-fix-markdown:
+fix-markdown: run-docker-compose-build
 	$(RUN) markdownlint --fix .
 
 ## Fix basic errors in book source files with textlint
 .PHONY: fix-textlint
-fix-textlint:
+fix-textlint: run-docker-compose-build
 	$(RUN) textlint --fix .
 
 
