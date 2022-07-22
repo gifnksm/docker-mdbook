@@ -51,7 +51,7 @@ Markdownファイルで使用可能なMarkdown記法については[mdBookのド
     ~~~markdown
     \\(x\\)の不定積分:
 
-    \\(\int x dx = \frac{x^2}{2} + C\\)
+    \\[\int x dx = \frac{x^2}{2} + C\\]
     ~~~
 
 - 表示結果

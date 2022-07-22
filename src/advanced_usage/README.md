@@ -4,4 +4,7 @@ mdbook-ja-templateの応用的な使い方を紹介します。
 
 執筆中。
 
-{{#include ../SUMMARY.md:advanced_usage}}
+- mdBookの設定方法
+- textlintの設定方法
+- markdownlintの設定方法
+- Docker Composeの使い方

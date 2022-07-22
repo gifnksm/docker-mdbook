@@ -49,30 +49,6 @@ Gitリポジトリの`src/`ディレクトリ配下のファイルをすべて�
 <!-- markdownlint-disable MD042 -->
 ```
 
-### アンカー
-
-`src/SUMMARY.md`の内容の一部を他のMarkdownファイルに埋め込むことができます。
-セクションの親となるページに、自身の子ページの目次を含める場合などに便利です。
-
-`src/SUMMARY.md`の内容の一部を埋め込むためには、まず、埋め込みたい部分を示すアンカーを定義できます。
-以下のように記述すると、`src/SUMMARY.md`の一部に`name`という名前のアンカーを定義します。
-
-```markdown
-- [chapter1](chapter1.md)
-  <!-- ANCHOR: name -->
-  - [section1](section1.md)
-  - [section2](section2.md)
-  <!-- ANCHOR_END: name -->
-- [chapter2](chapter2.md)
-```
-
-Markdownファイル中に以下のように記述することで、アンカーが埋め込まれた部分をそのまま文章に含めることができます。
-`SUMMARY.md`の部分は、文章を埋め込むMarkdownファイルから`src/SUMMARY.md`への相対パスへと変更してください。
-
-```markdown
-\{{#include SUMMARY.md:name}}
-```
-
 ## サンプル
 
 以下に、本ドキュメントの`SUMMARY.md`を示します。
