@@ -76,7 +76,7 @@ run-npm-install: package.json package-lock.json
 
 ## Run linters/tests on book source files
 .PHONY: check
-check: check-markdown check-textlint check-mdbook
+check: build check-markdown check-textlint check-mdbook
 
 ## Run markdownlint on book source files
 .PHONY: check-markdown
