@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">はじめに</a></li><li class="chapter-item expanded "><a href="basic_usage/index.html"><strong aria-hidden="true">1.</strong> 基本的な使い方</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basic_usage/create_git_repository.html"><strong aria-hidden="true">1.1.</strong> Gitリポジトリを作成する</a></li><li class="chapter-item expanded "><a href="basic_usage/set_document_info.html"><strong aria-hidden="true">1.2.</strong> 文書情報を設定する</a></li><li class="chapter-item expanded "><a href="basic_usage/view_document.html"><strong aria-hidden="true">1.3.</strong> ウェブブラウザで表示を確認する</a></li><li class="chapter-item expanded "><a href="basic_usage/create_summary.html"><strong aria-hidden="true">1.4.</strong> SUMMARY.mdを作る</a></li><li class="chapter-item expanded "><a href="basic_usage/write_document.html"><strong aria-hidden="true">1.5.</strong> 本文を執筆する</a></li><li class="chapter-item expanded "><a href="basic_usage/correct_document.html"><strong aria-hidden="true">1.6.</strong> 文書校正する</a></li><li class="chapter-item expanded "><a href="basic_usage/publish_document.html"><strong aria-hidden="true">1.7.</strong> ウェブサイトとして公開する</a></li><li class="chapter-item expanded "><a href="basic_usage/after_publish_document.html"><strong aria-hidden="true">1.8.</strong> ウェブサイト公開後</a></li></ol></li><li class="chapter-item expanded "><a href="advanced_usage/index.html"><strong aria-hidden="true">2.</strong> 応用的な使い方</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> mdBookの設定方法</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> textlintの設定方法</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> markdownlintの設定方法</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Docker Composeの使い方</div></li></ol></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">3.</strong> リファレンス</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="reference/make_targets.html"><strong aria-hidden="true">3.1.</strong> makeターゲット一覧</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> 導入済みのtextlintプラグイン一覧</div></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">はじめに</a></li><li class="chapter-item expanded "><a href="basic_usage/index.html"><strong aria-hidden="true">1.</strong> 基本的な使い方</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basic_usage/preparation.html"><strong aria-hidden="true">1.1.</strong> 事前準備</a></li><li class="chapter-item expanded "><a href="basic_usage/create_git_repository.html"><strong aria-hidden="true">1.2.</strong> Gitリポジトリを作成する</a></li><li class="chapter-item expanded "><a href="basic_usage/set_document_info.html"><strong aria-hidden="true">1.3.</strong> 文書情報を設定する</a></li><li class="chapter-item expanded "><a href="basic_usage/view_document.html"><strong aria-hidden="true">1.4.</strong> ウェブブラウザで表示を確認する</a></li><li class="chapter-item expanded "><a href="basic_usage/create_summary.html"><strong aria-hidden="true">1.5.</strong> SUMMARY.mdを作る</a></li><li class="chapter-item expanded "><a href="basic_usage/write_document.html"><strong aria-hidden="true">1.6.</strong> 本文を執筆する</a></li><li class="chapter-item expanded "><a href="basic_usage/correct_document.html"><strong aria-hidden="true">1.7.</strong> 文書校正する</a></li><li class="chapter-item expanded "><a href="basic_usage/publish_document.html"><strong aria-hidden="true">1.8.</strong> ウェブサイトとして公開する</a></li><li class="chapter-item expanded "><a href="basic_usage/after_publish_document.html"><strong aria-hidden="true">1.9.</strong> ウェブサイト公開後</a></li></ol></li><li class="chapter-item expanded "><a href="advanced_usage/index.html"><strong aria-hidden="true">2.</strong> 応用的な使い方</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> mdBookの設定方法</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> textlintの設定方法</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> markdownlintの設定方法</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Docker Composeの使い方</div></li></ol></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">3.</strong> リファレンス</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="reference/make_targets.html"><strong aria-hidden="true">3.1.</strong> makeターゲット一覧</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> 導入済みのtextlintプラグイン一覧</div></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -183,6 +183,16 @@
 <li><a href="basic_usage/./publish_document.html">ウェブサイトとして公開する</a></li>
 <li><a href="basic_usage/./after_publish_document.html">ウェブサイト公開後</a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="事前準備"><a class="header" href="#事前準備">事前準備</a></h1>
+<p>mdbook-ja-templateを利用するためには、以下のコマンドが必要です。</p>
+<ul>
+<li>Docker Compose</li>
+<li>npm (オプション)</li>
+</ul>
+<p>Docker Composeのインストール方法は<a href="https://docs.docker.com/compose/install/">Install Docker Compose</a>を参照してください。</p>
+<p>npmはVisual Studio Code等のエディタ・IDEとmdbook-ja-templateの各種チェック機能を連携させる場合に必要です。
+多くの場合Node.jsをインストールすることでnpmがインストールされます。
+Node.jsのインストール方法は<a href="https://nodejs.org/ja/download/package-manager/">パッケージマネージャを利用したNode.jsのインストール</a>を参照してください。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gitリポジトリを作成する"><a class="header" href="#gitリポジトリを作成する">Gitリポジトリを作成する</a></h1>
 <p><a href="https://github.com/gifnksm/mdbook-ja-template">mdbook-ja-template</a>と同じ内容のGitリポジトリを作成します。
 mdbook-ja-templateはテンプレートリポジトリとして設定されているため、同じ内容のGitリポジトリを簡単に作成できます。</p>
@@ -311,6 +321,7 @@ Gitリポジトリをcloneして編集することを推奨します。
 [はじめに](./README.md)
 
 - [基本的な使い方](./basic_usage/README.md)
+  - [事前準備](./basic_usage/preparation.md)
   - [Gitリポジトリを作成する](./basic_usage/create_git_repository.md)
   - [文書情報を設定する](./basic_usage/set_document_info.md)
   - [ウェブブラウザで表示を確認する](./basic_usage/view_document.md)
