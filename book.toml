@@ -12,6 +12,8 @@ git-repository-url = "https://github.com/gifnksm/mdbook-ja-template"
 edit-url-template = "https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}"
 site-url = "/mdbook-ja-template/"
 
+[output.linkcheck]
+
 [preprocessor]
 
 [preprocessor.mermaid]
