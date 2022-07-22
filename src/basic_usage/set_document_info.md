@@ -16,7 +16,7 @@
   * `title`: 文書のタイトルを設定する
 * `output.html`セクション
   * `git-repository-url`: 前節で作成したGitリポジトリのURLを設定する
-  * `edit-url-template`: 前節で作成したGitリポジトリのURLの末尾に`/etc/main/{path}`を追加したものを設定する
+  * `edit-url-template`: 前節で作成したGitリポジトリのURLの末尾に`/edit/main/{path}`を追加したものを設定する
   * `site-url`: リポジトリ名を設定する
 
 `book.toml`はGitHubウェブサイト上で直接編集可能ですが、
