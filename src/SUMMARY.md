@@ -5,6 +5,7 @@
 [はじめに](./README.md)
 
 - [基本的な使い方](./basic_usage/README.md)
+  - [事前準備](./basic_usage/preparation.md)
   - [Gitリポジトリを作成する](./basic_usage/create_git_repository.md)
   - [文書情報を設定する](./basic_usage/set_document_info.md)
   - [ウェブブラウザで表示を確認する](./basic_usage/view_document.md)
