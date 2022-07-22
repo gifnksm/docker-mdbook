@@ -174,14 +174,14 @@
 <p><a href="https://github.com/gifnksm/mdbook-ja-template">mdbook-ja-template</a>の基本的な使い方を説明します。
 本章で説明する手順に従うことで、mdbook-ja-templateを使って執筆した文章をウェブサイトとして公開できます。</p>
 <ul>
-<li><a href="basic_usage/./basic_usage/create_git_repository.html">Gitリポジトリを作成する</a></li>
-<li><a href="basic_usage/./basic_usage/set_document_info.html">文書情報を設定する</a></li>
-<li><a href="basic_usage/./basic_usage/view_document.html">ウェブブラウザで表示を確認する</a></li>
-<li><a href="basic_usage/./basic_usage/create_summary.html">SUMMARY.mdを作る</a></li>
-<li><a href="basic_usage/./basic_usage/write_document.html">本文を執筆する</a></li>
-<li><a href="basic_usage/./basic_usage/correct_document.html">文書校正する</a></li>
-<li><a href="basic_usage/./basic_usage/publish_document.html">ウェブサイトとして公開する</a></li>
-<li><a href="basic_usage/./basic_usage/after_publish_document.html">ウェブサイト公開後</a></li>
+<li><a href="basic_usage/./create_git_repository.html">Gitリポジトリを作成する</a></li>
+<li><a href="basic_usage/./set_document_info.html">文書情報を設定する</a></li>
+<li><a href="basic_usage/./view_document.html">ウェブブラウザで表示を確認する</a></li>
+<li><a href="basic_usage/./create_summary.html">SUMMARY.mdを作る</a></li>
+<li><a href="basic_usage/./write_document.html">本文を執筆する</a></li>
+<li><a href="basic_usage/./correct_document.html">文書校正する</a></li>
+<li><a href="basic_usage/./publish_document.html">ウェブサイトとして公開する</a></li>
+<li><a href="basic_usage/./after_publish_document.html">ウェブサイト公開後</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gitリポジトリを作成する"><a class="header" href="#gitリポジトリを作成する">Gitリポジトリを作成する</a></h1>
 <p><a href="https://github.com/gifnksm/mdbook-ja-template">mdbook-ja-template</a>と同じ内容のGitリポジトリを作成します。
@@ -221,6 +221,8 @@ additional-js = [&quot;js/mermaid.min.js&quot;, &quot;js/mermaid-init.js&quot;]
 git-repository-url = &quot;https://github.com/gifnksm/mdbook-ja-template&quot;
 edit-url-template = &quot;https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}&quot;
 site-url = &quot;/mdbook-ja-template/&quot;
+
+[output.linkcheck]
 
 [preprocessor]
 
@@ -300,22 +302,6 @@ Gitリポジトリをcloneして編集することを推奨します。
 警告を無効化するためには、以下を<code>src/SUMMARY.md</code>の先頭に追加してください。</p>
 <pre><code class="language-html">&lt;!-- markdownlint-disable MD042 --&gt;
 </code></pre>
-<h3 id="アンカー"><a class="header" href="#アンカー">アンカー</a></h3>
-<p><code>src/SUMMARY.md</code>の内容の一部を他のMarkdownファイルに埋め込むことができます。
-セクションの親となるページに、自身の子ページの目次を含める場合などに便利です。</p>
-<p><code>src/SUMMARY.md</code>の内容の一部を埋め込むためには、まず、埋め込みたい部分を示すアンカーを定義できます。
-以下のように記述すると、<code>src/SUMMARY.md</code>の一部に<code>name</code>という名前のアンカーを定義します。</p>
-<pre><code class="language-markdown">- [chapter1](chapter1.md)
-  &lt;!-- ANCHOR: name --&gt;
-  - [section1](section1.md)
-  - [section2](section2.md)
-  &lt;!-- ANCHOR_END: name --&gt;
-- [chapter2](chapter2.md)
-</code></pre>
-<p>Markdownファイル中に以下のように記述することで、アンカーが埋め込まれた部分をそのまま文章に含めることができます。
-<code>SUMMARY.md</code>の部分は、文章を埋め込むMarkdownファイルから<code>src/SUMMARY.md</code>への相対パスへと変更してください。</p>
-<pre><code class="language-markdown">{{#include SUMMARY.md:name}}
-</code></pre>
 <h2 id="サンプル"><a class="header" href="#サンプル">サンプル</a></h2>
 <p>以下に、本ドキュメントの<code>SUMMARY.md</code>を示します。</p>
 <pre><code class="language-markdown"># Summary
@@ -325,7 +311,6 @@ Gitリポジトリをcloneして編集することを推奨します。
 [はじめに](./README.md)
 
 - [基本的な使い方](./basic_usage/README.md)
-  &lt;!-- ANCHOR: basic_usage --&gt;
   - [Gitリポジトリを作成する](./basic_usage/create_git_repository.md)
   - [文書情報を設定する](./basic_usage/set_document_info.md)
   - [ウェブブラウザで表示を確認する](./basic_usage/view_document.md)
@@ -334,19 +319,14 @@ Gitリポジトリをcloneして編集することを推奨します。
   - [文書校正する](./basic_usage/correct_document.md)
   - [ウェブサイトとして公開する](./basic_usage/publish_document.md)
   - [ウェブサイト公開後](./basic_usage/after_publish_document.md)
-  &lt;!-- ANCHOR_END: basic_usage --&gt;
 - [応用的な使い方](./advanced_usage/README.md)
-  &lt;!-- ANCHOR: advanced_usage --&gt;
   - [mdBookの設定方法]()
   - [textlintの設定方法]()
   - [markdownlintの設定方法]()
   - [Docker Composeの使い方]()
-  &lt;!-- ANCHOR_END: advanced_usage --&gt;
 - [リファレンス](./reference/README.md)
-  &lt;!-- ANCHOR: reference --&gt;
   - [makeターゲット一覧](./reference/make_targets.md)
   - [導入済みのtextlintプラグイン一覧]()
-  &lt;!-- ANCHOR_END: reference --&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="本文を執筆する"><a class="header" href="#本文を執筆する">本文を執筆する</a></h1>
 <!-- markdownlint-disable MD048 -->
@@ -391,7 +371,7 @@ fn main() {
 <p>ソースコード</p>
 <pre><code class="language-markdown">\\(x\\)の不定積分:
 
-\\(\int x dx = \frac{x^2}{2} + C\\)
+\\[\int x dx = \frac{x^2}{2} + C\\]
 </code></pre>
 </li>
 <li>
@@ -475,15 +455,15 @@ flowchart LR
 <p>mdbook-ja-templateの応用的な使い方を紹介します。</p>
 <p>執筆中。</p>
 <ul>
-<li><a href="advanced_usage/">mdBookの設定方法</a></li>
-<li><a href="advanced_usage/">textlintの設定方法</a></li>
-<li><a href="advanced_usage/">markdownlintの設定方法</a></li>
-<li><a href="advanced_usage/">Docker Composeの使い方</a></li>
+<li>mdBookの設定方法</li>
+<li>textlintの設定方法</li>
+<li>markdownlintの設定方法</li>
+<li>Docker Composeの使い方</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="リファレンス"><a class="header" href="#リファレンス">リファレンス</a></h1>
 <ul>
-<li><a href="reference/./reference/make_targets.html">makeターゲット一覧</a></li>
-<li><a href="reference/">導入済みのtextlintプラグイン一覧</a></li>
+<li><a href="reference/./make_targets.html">makeターゲット一覧</a></li>
+<li>導入済みのtextlintプラグイン一覧</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="makeターゲット一覧"><a class="header" href="#makeターゲット一覧">makeターゲット一覧</a></h1>
 <p>mdbook-ja-templateのMakefileで用意されているターゲットの一覧です。</p>
