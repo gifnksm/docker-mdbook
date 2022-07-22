@@ -19,6 +19,10 @@ services:
     <<: *default-service
     entrypoint: ["mdbook-mermaid"]
 
+  mdbook-linkcheck:
+    <<: *default-service
+    entrypoint: ["mdbook-linkcheck"]
+
   markdownlint:
     <<: *default-service
     entrypoint: ["markdownlint"]
@@ -27,6 +31,6 @@ services:
     <<: *default-service
     entrypoint: ["textlint"]
 
-  sh:
+  exec:
     <<: *default-service
-    entrypoint: ["sh"]
+    entrypoint: []

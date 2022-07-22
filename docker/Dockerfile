@@ -1,5 +1,5 @@
 FROM ghcr.io/gifnksm/mdbook-ja:latest
 
-# RUN cargo install mdbook-foo --version x.y.z --root /usr/local/
-# RUN (cd /npm; npm install textlint-foo@x.y.z)
+# RUN cargo install mdbook-toc --version 0.9.0 --root /usr/local
+# RUN cd /npm && npm install textlint-rule-no-todo@2
 

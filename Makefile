@@ -50,10 +50,10 @@ run-docker-compose-build:
 run-docker-compose-pull-build:
 	$(DOCKER_COMPOSE) build --pull
 
-# if package.json exist, pull target invokes install-lint-tools after run-docker-compose-pull
+# if package.json exist, pull target invokes install-lint-tools after run-docker-compose-pull-build
 ifneq ("$(wildcard package.json)", "")
 pull: install-lint-tools
-install-lint-tools: run-docker-compose-pull
+install-lint-tools: run-docker-compose-pull-build
 endif
 
 
@@ -71,7 +71,7 @@ setup-docker-compose: .env
 install-lint-tools: package.json package-lock.json run-npm-install
 
 package.json package-lock.json: run-docker-compose-build FORCE
-	$(RUN) sh -c "cp /npm/$@ $@"
+	$(RUN) exec cp /npm/$@ $@
 
 .PHONY: run-npm-install
 run-npm-install: package.json package-lock.json
