@@ -2,9 +2,7 @@
 
 mdbook-ja-templateの応用的な使い方を紹介します。
 
-執筆中。
-
-- mdBookの設定方法
-- textlintの設定方法
-- markdownlintの設定方法
-- Docker Composeの使い方
+- [mdBookのカスタマイズ](./customize_mdbook.md)
+- [textlintのカスタマイズ](./customize_textlint.md)
+- [markdownlintのカスタマイズ](./customize_markdownlint.md)
+- [Docker Composeの使い方](./docker_compose.md)
