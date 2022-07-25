@@ -21,4 +21,4 @@
   - [Docker Composeの使い方](./advanced_usage/docker_compose.md)
 - [リファレンス](./reference/README.md)
   - [makeターゲット一覧](./reference/make_targets.md)
-  - [導入済みのtextlintプラグイン一覧]()
+
