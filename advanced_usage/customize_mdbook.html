@@ -149,7 +149,7 @@
 設定項目については、<a href="https://rust-lang.github.io/mdBook/format/configuration/index.html">mdBookのドキュメント</a>を参照してください。</p>
 <p>mdbook-ja-templateの<code>book.toml</code>の内容は以下のとおりです。</p>
 <pre><code class="language-toml">[book]
-authors = [&quot;gifnksm &lt;makoto.nksm+github@gmail.com&gt;&quot;]
+authors = [&quot;gifnksm &lt;makoto.nksm@gmail.com&gt;&quot;]
 title = &quot;mdbook-ja-templateユーザーズガイド&quot;
 language = &quot;ja&quot;
 src = &quot;src&quot;
@@ -159,10 +159,13 @@ multilingual = false
 mathjax-support = true
 additional-js = [&quot;js/mermaid.min.js&quot;, &quot;js/mermaid-init.js&quot;]
 git-repository-url = &quot;https://github.com/gifnksm/mdbook-ja-template&quot;
+#git-repository-url = &quot;https://gitlab.com/gifnksm/mdbook-ja-template&quot;
 edit-url-template = &quot;https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}&quot;
+#edit-url-template = &quot;https://gitlab.com/gifnksm/mdbook-ja-template/edit/main/-/{path}&quot;
 site-url = &quot;/mdbook-ja-template/&quot;
 
 [output.linkcheck]
+#follow-web-links = true
 
 [preprocessor]
 
@@ -184,7 +187,7 @@ mdBookで利用可能なプラグインの一覧は<a href="https://github.com/r
 多くのプラグインは<code>cargo install</code> でインストールできます。</p>
 <p>以下に、<a href="https://github.com/badboy/mdbook-toc">mdbook-toc</a>プラグインをインストールする場合の例を示します。</p>
 <p>まず、<code>docker/Dockerfile</code>を以下のように編集してください。</p>
-<pre><code class="language-Dockerfile">FROM ghcr.io/gifnksm/mdbook-ja:latest
+<pre><code class="language-Dockerfile">FROM ${BASE_IMAGE}
 
 # ↓追加
 RUN cargo install mdbook-toc --version 0.9.0 --root /usr/local/bin

@@ -141,14 +141,15 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="はじめに"><a class="header" href="#はじめに">はじめに</a></h1>
-<p>この文章では<a href="https://github.com/rust-lang/mdBook">mdBook</a>で日本語の技術文書を書くためのテンプレート<a href="https://github.com/gifnksm/mdbook-ja-template">mdbook-ja-template</a>について説明します。
+<p>この文章では<a href="https://github.com/rust-lang/mdBook">mdBook</a>で日本語の技術文書を書くためのテンプレートmdbook-ja-templateについて説明します。
 このテンプレートを使うことで、 Markdownの文書をHTMLに変換し、ウェブサイトとして公開できます。</p>
+<p>mdbook-ja-templateは<a href="https://github.com/gifnksm/mdbook-ja-template">GitHub</a>および<a href="https://gitlab.com/gifnksm/mdbook-ja-template">GitLab</a>で公開されています。</p>
 <h2 id="特徴"><a class="header" href="#特徴">特徴</a></h2>
 <p>mdbook-ja-templateの特徴を説明します。</p>
 <h3 id="すぐに執筆発信できる"><a class="header" href="#すぐに執筆発信できる">すぐに執筆・発信できる</a></h3>
 <p>文書執筆に必要なツール一式がDockerコンテナ化されているため、面倒なセットアップ作業は不要です。
 すぐに執筆を始めることができます。</p>
-<p>文書公開のために必要な作業がGitHub Actionsのワークフローとして定義されており、自動的に実行されます。
+<p>文書公開のために必要な作業がGitHub ActionsおよびGitLab CIのワークフローとして定義されており、自動的に実行されます。
 余計な手間をかけることなく、作成した文章をすぐに発信できます。</p>
 <h3 id="文書校正が自動で行われる"><a class="header" href="#文書校正が自動で行われる">文書校正が自動で行われる</a></h3>
 <p>文章校正ツール<a href="https://textlint.github.io/">textlint</a>が導入されているため、文書の自動校正が可能です。
@@ -158,12 +159,12 @@
 <p>文書校正や各種チェックツールは<code>make check -k</code>を実行するだけで一括実行できるよう設定されているため、各種チェックツールのオプションを覚える必要はありません。
 その他にも、執筆時の典型的なタスクが<code>Makefile</code>で実行できるよう設定されています。</p>
 <h2 id="コントリビューション"><a class="header" href="#コントリビューション">コントリビューション</a></h2>
-<p>mdbook-ja-templateはオープンソースプロジェクトで、ソースコードは<a href="https://github.com/gifnksm/mdbook-ja-template">GitHub</a>上で公開されています。
+<p>mdbook-ja-templateはオープンソースプロジェクトで、ソースコードは<a href="https://github.com/gifnksm/mdbook-ja-template">GitHub</a>および<a href="https://gitlab.com/gifnksm/mdbook-ja-template">GitLab</a>上で公開されています。
 問題の報告や機能追加の要望は<a href="https://github.com/gifnksm/mdbook-ja-template/issues">GitHubのIssueトラッカー</a>に投稿してください。</p>
 <h2 id="ライセンス"><a class="header" href="#ライセンス">ライセンス</a></h2>
 <p>mdbook-ja-templateは<a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero v1.0 Universal</a>ライセンスで配布されています。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h1>
-<p><a href="https://github.com/gifnksm/mdbook-ja-template">mdbook-ja-template</a>の基本的な使い方を説明します。
+<p>mdbook-ja-templateの基本的な使い方を説明します。
 本章で説明する手順に従うことで、mdbook-ja-templateを使って執筆した文章をウェブサイトとして公開できます。</p>
 <ul>
 <li><a href="basic_usage/./create_git_repository.html">Gitリポジトリを作成する</a></li>
@@ -186,17 +187,20 @@
 多くの場合Node.jsをインストールすることでnpmがインストールされます。
 Node.jsのインストール方法は<a href="https://nodejs.org/ja/download/package-manager/">パッケージマネージャを利用したNode.jsのインストール</a>を参照してください。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gitリポジトリを作成する"><a class="header" href="#gitリポジトリを作成する">Gitリポジトリを作成する</a></h1>
-<p><a href="https://github.com/gifnksm/mdbook-ja-template">mdbook-ja-template</a>と同じ内容のGitリポジトリを作成します。
-mdbook-ja-templateはテンプレートリポジトリとして設定されているため、同じ内容のGitリポジトリを簡単に作成できます。</p>
-<p>Gitリポジトリを作成するには、GitHubウェブサイトから作成する方法と、GitHub CLIで作成する方法があります。</p>
-<h2 id="githubウェブサイトから作成する方法"><a class="header" href="#githubウェブサイトから作成する方法">GitHubウェブサイトから作成する方法</a></h2>
+<p>mdbook-ja-templateと同じ内容のGitリポジトリを作成します。
+GitHubにリポジトリを作成する方法と、GitLabにリポジトリを作成する方法のそれぞれについて説明します。</p>
+<h2 id="githubにリポジトリを作成する方法"><a class="header" href="#githubにリポジトリを作成する方法">GitHubにリポジトリを作成する方法</a></h2>
+<p>mdbook-ja-templateはテンプレートリポジトリとして設定されているため、同じ内容のGitリポジトリを簡単に作成できます。</p>
+<p>Gitリポジトリを作成するには、GitHubウェブサイトから作成する方法と、GitHub CLIで作成する方法があります。
+どちらの方法でも生成されるリポジトリは同じ内容です。</p>
+<h3 id="githubウェブサイトから作成する方法"><a class="header" href="#githubウェブサイトから作成する方法">GitHubウェブサイトから作成する方法</a></h3>
 <p>以下手順に従うことで、GitHubウェブサイトからGitリポジトリを作成できます。</p>
 <ol>
 <li><a href="https://github.com/gifnksm/mdbook-ja-template/generate">Create a new repository from mdbook-ja-template</a>へアクセスする</li>
 <li>表示された入力フォームへ必要事項を記入する</li>
 <li>&quot;Create repository from template&quot; ボタンを押す</li>
 </ol>
-<h2 id="github-cliで作成する方法"><a class="header" href="#github-cliで作成する方法">GitHub CLIで作成する方法</a></h2>
+<h3 id="github-cliで作成する方法"><a class="header" href="#github-cliで作成する方法">GitHub CLIで作成する方法</a></h3>
 <p>GitHub CLI (<code>gh</code>コマンド) を実行することでGitリポジトリを作成します。</p>
 <p>以下は<code>repository</code>という名前の公開リポジトリを作成する場合のコマンド実行例です。
 <code>--template https://github.com/gifnksm/mdbook-ja-template</code> オプションが、mdbook-ja-templateを使用することを示しています。
@@ -207,11 +211,20 @@ mdbook-ja-templateはテンプレートリポジトリとして設定されて�
     repository
 ✓ Created repository gifnksm/repository on GitHub
 </code></pre>
+<h2 id="gitlabにリポジトリを作成する方法"><a class="header" href="#gitlabにリポジトリを作成する方法">GitLabにリポジトリを作成する方法</a></h2>
+<p>以下手順に従うことで、mdbook-ja-templateプロジェクトをフォークして新たなプロジェクト(Gitリポジトリ)を作成できます。</p>
+<ol>
+<li><a href="https://gitlab.com/gifnksm/mdbook-ja-template/-/forks/new">Fork project</a>へアクセスする</li>
+<li>表示された入力フォームへ必要事項を記入する</li>
+<li>&quot;Fork project&quot; ボタンを押す</li>
+</ol>
+<p>新規作成したプロジェクトは、mdbook-ja-templateとフォークの関係となります。
+フォークの関係を維持したくない場合、プロジェクトの「設定」→「一般」→「高度な設定」→「フォークの関係を削除」より、「フォークの関係を削除」ボタンを押してください。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="文書情報を設定する"><a class="header" href="#文書情報を設定する">文書情報を設定する</a></h1>
 <p>文章を執筆する前に、文書のタイトルや著者などの文書情報を設定しましょう。</p>
 <p>前節で作成したGitリポジトリの<code>book.toml</code>ファイルは以下のようになっています。</p>
 <pre><code class="language-toml">[book]
-authors = [&quot;gifnksm &lt;makoto.nksm+github@gmail.com&gt;&quot;]
+authors = [&quot;gifnksm &lt;makoto.nksm@gmail.com&gt;&quot;]
 title = &quot;mdbook-ja-templateユーザーズガイド&quot;
 language = &quot;ja&quot;
 src = &quot;src&quot;
@@ -221,10 +234,13 @@ multilingual = false
 mathjax-support = true
 additional-js = [&quot;js/mermaid.min.js&quot;, &quot;js/mermaid-init.js&quot;]
 git-repository-url = &quot;https://github.com/gifnksm/mdbook-ja-template&quot;
+#git-repository-url = &quot;https://gitlab.com/gifnksm/mdbook-ja-template&quot;
 edit-url-template = &quot;https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}&quot;
+#edit-url-template = &quot;https://gitlab.com/gifnksm/mdbook-ja-template/edit/main/-/{path}&quot;
 site-url = &quot;/mdbook-ja-template/&quot;
 
 [output.linkcheck]
+#follow-web-links = true
 
 [preprocessor]
 
@@ -248,7 +264,7 @@ command = &quot;mdbook-mermaid&quot;
 </ul>
 </li>
 </ul>
-<p><code>book.toml</code>はGitHubウェブサイト上で直接編集可能ですが、
+<p><code>book.toml</code>はGitHubやGitLabのウェブサイト上で直接編集可能ですが、
 Gitリポジトリをcloneして編集することを推奨します。
 以降の節ではGitリポジトリをcloneしていることを前提に説明します。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ウェブブラウザで表示を確認する"><a class="header" href="#ウェブブラウザで表示を確認する">ウェブブラウザで表示を確認する</a></h1>
@@ -261,8 +277,8 @@ Gitリポジトリをcloneして編集することを推奨します。
 文章の表示をリアルタイムで確認しながら執筆できるので、基本的にはHTTPサーバーを立ち上げた状態で執筆するのが良いでしょう。</p>
 <h2 id="httpサーバーを立ち上げないで表示を確認する"><a class="header" href="#httpサーバーを立ち上げないで表示を確認する">HTTPサーバーを立ち上げないで表示を確認する</a></h2>
 <p>HTTPサーバーが不要な場合、以下のコマンドを実行してください。
-<code>book/</code>ディレクトリ配下にHTMLファイルが生成されます。
-<code>book/index.html</code>をウェブブラウザで開くことで、文書の表示を確認できます。</p>
+<code>book/html</code>ディレクトリ配下にHTMLファイルが生成されます。
+<code>book/html/index.html</code>をウェブブラウザで開くことで、文書の表示を確認できます。</p>
 <pre><code class="language-console">make build
 </code></pre>
 <p>以下コマンドを実行するとMarkdownファイルの変更を監視するプロセスが起動し、変更の度に自動でHTMLが更新されます。
@@ -436,15 +452,17 @@ flowchart LR
 <h2 id="その他のエディタideへの統合"><a class="header" href="#その他のエディタideへの統合">その他のエディタ・IDEへの統合</a></h2>
 <p>VSCode以外のエディタ・IDEについても、<a href="https://github.com/igorshubovych/markdownlint-cli">markdownlint-cli</a>や<a href="https://textlint.github.io/">textlint</a>に対応したものであれば同等の機能が使用できるはずです。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ウェブサイトとして公開する"><a class="header" href="#ウェブサイトとして公開する">ウェブサイトとして公開する</a></h1>
-<p>Markdownファイルに対する変更をcommitしGitHubへpushします。
+<p>Markdownファイルに対する変更をcommitしGitHub(またはGitLab)へpushします。
 文章校正やMarkdownスタイルチェックの指摘への対応漏れがないことを確実にするため、
 別ブランチを作成して変更内容をcommitするのが良いでしょう。
-<code>main</code>ブランチに対するPull Requestを作成し、GitHub Actionsのチェックが通ったことを確認したらマージしましょう。</p>
+<code>main</code>ブランチに対するPull Request(Merge Request)を作成し、GitHub Actions(GitLab CI)のチェックが通ったことを確認したらマージしましょう。</p>
 <p>変更が<code>main</code>ブランチに取り込まれると、公開されているウェブサイトの内容が更新されます。
 公開されたウェブサイトには以下URLからアクセスできます。</p>
-<pre><code class="language-url">https://&lt;username&gt;.github.io/&lt;repository&gt;
-</code></pre>
-<p><code>&lt;username&gt;</code>はGitHubのアカウント名、<code>&lt;repository&gt;</code>はGitリポジトリ名です。</p>
+<ul>
+<li>GitHubの場合: <code>https://&lt;username&gt;.github.io/&lt;repository&gt;</code></li>
+<li>GitLabの場合: <code>https://&lt;username&gt;.gitlab.io/&lt;repository&gt;</code></li>
+</ul>
+<p><code>&lt;username&gt;</code>はGitHubまたはGitLabのアカウント名、<code>&lt;repository&gt;</code>はGitリポジトリ名です。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ウェブサイト公開後"><a class="header" href="#ウェブサイト公開後">ウェブサイト公開後</a></h1>
 <p>ここまでの手順で、mdbook-ja-templateを使ってウェブサイトを作成し、
 執筆した文章をウェブサイトとして公開できました。</p>
@@ -468,7 +486,7 @@ flowchart LR
 設定項目については、<a href="https://rust-lang.github.io/mdBook/format/configuration/index.html">mdBookのドキュメント</a>を参照してください。</p>
 <p>mdbook-ja-templateの<code>book.toml</code>の内容は以下のとおりです。</p>
 <pre><code class="language-toml">[book]
-authors = [&quot;gifnksm &lt;makoto.nksm+github@gmail.com&gt;&quot;]
+authors = [&quot;gifnksm &lt;makoto.nksm@gmail.com&gt;&quot;]
 title = &quot;mdbook-ja-templateユーザーズガイド&quot;
 language = &quot;ja&quot;
 src = &quot;src&quot;
@@ -478,10 +496,13 @@ multilingual = false
 mathjax-support = true
 additional-js = [&quot;js/mermaid.min.js&quot;, &quot;js/mermaid-init.js&quot;]
 git-repository-url = &quot;https://github.com/gifnksm/mdbook-ja-template&quot;
+#git-repository-url = &quot;https://gitlab.com/gifnksm/mdbook-ja-template&quot;
 edit-url-template = &quot;https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}&quot;
+#edit-url-template = &quot;https://gitlab.com/gifnksm/mdbook-ja-template/edit/main/-/{path}&quot;
 site-url = &quot;/mdbook-ja-template/&quot;
 
 [output.linkcheck]
+#follow-web-links = true
 
 [preprocessor]
 
@@ -503,7 +524,7 @@ mdBookで利用可能なプラグインの一覧は<a href="https://github.com/r
 多くのプラグインは<code>cargo install</code> でインストールできます。</p>
 <p>以下に、<a href="https://github.com/badboy/mdbook-toc">mdbook-toc</a>プラグインをインストールする場合の例を示します。</p>
 <p>まず、<code>docker/Dockerfile</code>を以下のように編集してください。</p>
-<pre><code class="language-Dockerfile">FROM ghcr.io/gifnksm/mdbook-ja:latest
+<pre><code class="language-Dockerfile">FROM ${BASE_IMAGE}
 
 # ↓追加
 RUN cargo install mdbook-toc --version 0.9.0 --root /usr/local/bin
@@ -553,7 +574,7 @@ textlintで利用可能なルールの一覧は<a href="https://github.com/textl
 多くのルールは<code>cd /npm &amp;&amp; npm install textlint-rule-*</code> でインストールできます。</p>
 <p>以下に、<a href="https://github.com/textlint-rule/textlint-rule-no-todo">textlint-rule-no-todo</a>プラグインをインストールする場合の例を示します。</p>
 <p>まず、<code>docker/Dockerfile</code>を以下のように編集してください。</p>
-<pre><code class="language-Dockerfile">FROM ghcr.io/gifnksm/mdbook-ja:latest
+<pre><code class="language-Dockerfile">FROM ${BASE_IMAGE}
 
 # ↓追加
 RUN cd /npm &amp;&amp; npm install textlint-rule-no-todo@2
@@ -591,7 +612,7 @@ x-service:
   build:
     context: docker
     args:
-      BASE_IMAGE: ${DOCKER_BASE_IMAGE:-ghcr.io/gifnksm/mdbook-ja:latest}
+      BASE_IMAGE: ${DOCKER_BASE_IMAGE}
   image: mdbook
   init: true
   volumes: [&quot;.:/book:rw&quot;]

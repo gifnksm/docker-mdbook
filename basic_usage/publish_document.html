@@ -143,15 +143,17 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="ウェブサイトとして公開する"><a class="header" href="#ウェブサイトとして公開する">ウェブサイトとして公開する</a></h1>
-<p>Markdownファイルに対する変更をcommitしGitHubへpushします。
+<p>Markdownファイルに対する変更をcommitしGitHub(またはGitLab)へpushします。
 文章校正やMarkdownスタイルチェックの指摘への対応漏れがないことを確実にするため、
 別ブランチを作成して変更内容をcommitするのが良いでしょう。
-<code>main</code>ブランチに対するPull Requestを作成し、GitHub Actionsのチェックが通ったことを確認したらマージしましょう。</p>
+<code>main</code>ブランチに対するPull Request(Merge Request)を作成し、GitHub Actions(GitLab CI)のチェックが通ったことを確認したらマージしましょう。</p>
 <p>変更が<code>main</code>ブランチに取り込まれると、公開されているウェブサイトの内容が更新されます。
 公開されたウェブサイトには以下URLからアクセスできます。</p>
-<pre><code class="language-url">https://&lt;username&gt;.github.io/&lt;repository&gt;
-</code></pre>
-<p><code>&lt;username&gt;</code>はGitHubのアカウント名、<code>&lt;repository&gt;</code>はGitリポジトリ名です。</p>
+<ul>
+<li>GitHubの場合: <code>https://&lt;username&gt;.github.io/&lt;repository&gt;</code></li>
+<li>GitLabの場合: <code>https://&lt;username&gt;.gitlab.io/&lt;repository&gt;</code></li>
+</ul>
+<p><code>&lt;username&gt;</code>はGitHubまたはGitLabのアカウント名、<code>&lt;repository&gt;</code>はGitリポジトリ名です。</p>
 
                     </main>
 

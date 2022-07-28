@@ -181,7 +181,7 @@ textlintで利用可能なルールの一覧は<a href="https://github.com/textl
 多くのルールは<code>cd /npm &amp;&amp; npm install textlint-rule-*</code> でインストールできます。</p>
 <p>以下に、<a href="https://github.com/textlint-rule/textlint-rule-no-todo">textlint-rule-no-todo</a>プラグインをインストールする場合の例を示します。</p>
 <p>まず、<code>docker/Dockerfile</code>を以下のように編集してください。</p>
-<pre><code class="language-Dockerfile">FROM ghcr.io/gifnksm/mdbook-ja:latest
+<pre><code class="language-Dockerfile">FROM ${BASE_IMAGE}
 
 # ↓追加
 RUN cd /npm &amp;&amp; npm install textlint-rule-no-todo@2

@@ -146,7 +146,7 @@
 <p>文章を執筆する前に、文書のタイトルや著者などの文書情報を設定しましょう。</p>
 <p>前節で作成したGitリポジトリの<code>book.toml</code>ファイルは以下のようになっています。</p>
 <pre><code class="language-toml">[book]
-authors = [&quot;gifnksm &lt;makoto.nksm+github@gmail.com&gt;&quot;]
+authors = [&quot;gifnksm &lt;makoto.nksm@gmail.com&gt;&quot;]
 title = &quot;mdbook-ja-templateユーザーズガイド&quot;
 language = &quot;ja&quot;
 src = &quot;src&quot;
@@ -156,10 +156,13 @@ multilingual = false
 mathjax-support = true
 additional-js = [&quot;js/mermaid.min.js&quot;, &quot;js/mermaid-init.js&quot;]
 git-repository-url = &quot;https://github.com/gifnksm/mdbook-ja-template&quot;
+#git-repository-url = &quot;https://gitlab.com/gifnksm/mdbook-ja-template&quot;
 edit-url-template = &quot;https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}&quot;
+#edit-url-template = &quot;https://gitlab.com/gifnksm/mdbook-ja-template/edit/main/-/{path}&quot;
 site-url = &quot;/mdbook-ja-template/&quot;
 
 [output.linkcheck]
+#follow-web-links = true
 
 [preprocessor]
 
@@ -183,7 +186,7 @@ command = &quot;mdbook-mermaid&quot;
 </ul>
 </li>
 </ul>
-<p><code>book.toml</code>はGitHubウェブサイト上で直接編集可能ですが、
+<p><code>book.toml</code>はGitHubやGitLabのウェブサイト上で直接編集可能ですが、
 Gitリポジトリをcloneして編集することを推奨します。
 以降の節ではGitリポジトリをcloneしていることを前提に説明します。</p>
 

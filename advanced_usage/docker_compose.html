@@ -152,7 +152,7 @@ x-service:
   build:
     context: docker
     args:
-      BASE_IMAGE: ${DOCKER_BASE_IMAGE:-ghcr.io/gifnksm/mdbook-ja:latest}
+      BASE_IMAGE: ${DOCKER_BASE_IMAGE}
   image: mdbook
   init: true
   volumes: [&quot;.:/book:rw&quot;]
