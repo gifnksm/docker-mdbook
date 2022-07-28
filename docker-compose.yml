@@ -2,7 +2,10 @@ version: '3.9'
 
 x-service:
   &default-service
-  build: docker
+  build:
+    context: docker
+    args:
+      BASE_IMAGE: ${DOCKER_BASE_IMAGE:-ghcr.io/gifnksm/mdbook-ja:latest}
   image: mdbook
   init: true
   volumes: [".:/book:rw"]

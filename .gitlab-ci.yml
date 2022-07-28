@@ -1,0 +1,29 @@
+image: docker
+
+services:
+    - docker:dind
+
+stages:
+    - build
+    - deploy
+
+build-book:
+    stage: build
+    before_script:
+        - apk add make bash git
+    script:
+        - make build
+        - make check -k
+    artifacts:
+        paths:
+            - book
+
+pages:
+    stage: deploy
+    dependencies:
+        - build-book
+    script:
+        - mv book/html public
+    artifacts:
+        paths:
+            - public

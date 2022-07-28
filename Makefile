@@ -12,6 +12,31 @@ export GID = $(shell id -g)
 
 DOCKER_COMPOSE ?= docker compose
 RUN = $(DOCKER_COMPOSE) run --rm
+GIT_ORIGIN_URL = $(shell git remote get-url origin)
+
+
+ifdef GITLAB_CI
+BUILD_ENV ?= gitlab
+else ifdef GITHUB_ACTION
+BUILD_ENV ?= github
+else ifneq (,$(findstring github,$(GIT_ORIGIN_URL)))
+BUILD_ENV ?= github
+else ifneq (,$(findstring gitlab,$(GIT_ORIGIN_URL)))
+BUILD_ENV ?= gitlab
+else
+BUILD_ENV ?= unspecified
+endif
+
+$(info BUILD_ENV=$(BUILD_ENV))
+
+ifeq ($(BUILD_ENV),gitlab)
+DOCKER_BASE_IMAGE ?= registry.gitlab.com/gifnksm/docker-mdbook-ja:latest
+else ifeq ($(BUILD_ENV),github)
+DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
+else
+$(warning BUILD_ENV invalid or unspecified or undetectable)
+DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
+endif
 
 .PHONY: default
 default: build
@@ -64,6 +89,7 @@ setup-docker-compose: .env
 .env: FORCE
 	echo "UID=$(UID)" > $@
 	echo "GID=$(GID)" >> $@
+	echo "DOCKER_BASE_IMAGE=$(DOCKER_BASE_IMAGE)" >> $@
 
 
 ## Install lint tools to host environment
