@@ -588,7 +588,10 @@ mdbook-ja-templateの<code>docker-compose.yml</code>の内容は以下のとお�
 
 x-service:
   &amp;default-service
-  build: docker
+  build:
+    context: docker
+    args:
+      BASE_IMAGE: ${DOCKER_BASE_IMAGE:-ghcr.io/gifnksm/mdbook-ja:latest}
   image: mdbook
   init: true
   volumes: [&quot;.:/book:rw&quot;]
