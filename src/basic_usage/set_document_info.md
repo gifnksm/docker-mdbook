@@ -19,7 +19,7 @@
   * `edit-url-template`: 前節で作成したGitリポジトリのURLの末尾に`/edit/main/{path}`を追加したものを設定する
   * `site-url`: リポジトリ名を設定する
 
-`book.toml`はGitHubウェブサイト上で直接編集可能ですが、
+`book.toml`はGitHubやGitLabのウェブサイト上で直接編集可能ですが、
 Gitリポジトリをcloneして編集することを推奨します。
 以降の節ではGitリポジトリをcloneしていることを前提に説明します。
 

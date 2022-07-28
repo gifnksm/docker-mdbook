@@ -1,5 +1,5 @@
 [book]
-authors = ["gifnksm <makoto.nksm+github@gmail.com>"]
+authors = ["gifnksm <makoto.nksm@gmail.com>"]
 title = "mdbook-ja-templateユーザーズガイド"
 language = "ja"
 src = "src"
@@ -9,10 +9,13 @@ multilingual = false
 mathjax-support = true
 additional-js = ["js/mermaid.min.js", "js/mermaid-init.js"]
 git-repository-url = "https://github.com/gifnksm/mdbook-ja-template"
+#git-repository-url = "https://gitlab.com/gifnksm/mdbook-ja-template"
 edit-url-template = "https://github.com/gifnksm/mdbook-ja-template/edit/main/{path}"
+#edit-url-template = "https://gitlab.com/gifnksm/mdbook-ja-template/edit/main/-/{path}"
 site-url = "/mdbook-ja-template/"
 
 [output.linkcheck]
+#follow-web-links = true
 
 [preprocessor]
 

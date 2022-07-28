@@ -1,6 +1,6 @@
 # 基本的な使い方
 
-[mdbook-ja-template]の基本的な使い方を説明します。
+mdbook-ja-templateの基本的な使い方を説明します。
 本章で説明する手順に従うことで、mdbook-ja-templateを使って執筆した文章をウェブサイトとして公開できます。
 
 - [Gitリポジトリを作成する](./create_git_repository.md)
@@ -11,5 +11,3 @@
 - [文書校正する](./correct_document.md)
 - [ウェブサイトとして公開する](./publish_document.md)
 - [ウェブサイト公開後](./after_publish_document.md)
-
-[mdbook-ja-template]: https://github.com/gifnksm/mdbook-ja-template
