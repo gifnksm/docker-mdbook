@@ -30,7 +30,7 @@ textlintで利用可能なルールの一覧は[Collection of textlint rule]を�
 まず、`docker/Dockerfile`を以下のように編集してください。
 
 ```Dockerfile
-FROM ghcr.io/gifnksm/mdbook-ja:latest
+FROM ${BASE_IMAGE}
 
 # ↓追加
 RUN cd /npm && npm install textlint-rule-no-todo@2

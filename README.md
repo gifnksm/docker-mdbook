@@ -3,7 +3,12 @@
 [mdBook]で日本語の技術文書を書くためのテンプレートです。
 このテンプレートを使うことで、 Markdownの文書をHTMLに変換し、ウェブサイトとして公開できます。
 
-mdbook-ja-templateの使い方については、[ユーザーズガイド]を参照してください。
+mdbook-ja-templateの使い方については、ユーザーズガイドを参照してください。
+ユーザーズガイドはGitHubおよびGitLabで公開されています。
+両者の内容は同一です。
+
+* [ユーザーズガイド@GitHub](https://gifnksm.github.io/mdbook-ja-template/index.html)
+* [ユーザーズガイド@GitLab](https://gifnksm.gitlab.io/mdbook-ja-template/index.html)
 
 <!-- ANCHOR: body -->
 
@@ -16,7 +21,7 @@ mdbook-ja-templateの特徴を説明します。
 文書執筆に必要なツール一式がDockerコンテナ化されているため、面倒なセットアップ作業は不要です。
 すぐに執筆を始めることができます。
 
-文書公開のために必要な作業がGitHub Actionsのワークフローとして定義されており、自動的に実行されます。
+文書公開のために必要な作業がGitHub ActionsおよびGitLab CIのワークフローとして定義されており、自動的に実行されます。
 余計な手間をかけることなく、作成した文章をすぐに発信できます。
 
 ### 文書校正が自動で行われる
@@ -33,7 +38,7 @@ Markdownのスタイルチェックツール[markdownlint]も導入されてい�
 
 ## コントリビューション
 
-mdbook-ja-templateはオープンソースプロジェクトで、ソースコードは[GitHub]上で公開されています。
+mdbook-ja-templateはオープンソースプロジェクトで、ソースコードは[GitHub]および[GitLab]上で公開されています。
 問題の報告や機能追加の要望は[GitHubのIssueトラッカー]に投稿してください。
 
 ## ライセンス
@@ -41,10 +46,10 @@ mdbook-ja-templateはオープンソースプロジェクトで、ソースコ�
 mdbook-ja-templateは[Creative Commons Zero v1.0 Universal]ライセンスで配布されています。
 
 [mdBook]: https://github.com/rust-lang/mdBook
-[ユーザーズガイド]: https://gifnksm.github.io/mdbook-ja-template/
 [textlint]: https://textlint.github.io/
 [markdownlint]: https://github.com/DavidAnson/markdownlint
 [GitHub]: https://github.com/gifnksm/mdbook-ja-template
+[GitLab]: https://gitlab.com/gifnksm/mdbook-ja-template
 [GitHubのIssueトラッカー]: https://github.com/gifnksm/mdbook-ja-template/issues
 [Creative Commons Zero v1.0 Universal]: https://creativecommons.org/publicdomain/zero/1.0/
 

@@ -30,12 +30,12 @@ endif
 $(info BUILD_ENV=$(BUILD_ENV))
 
 ifeq ($(BUILD_ENV),gitlab)
-DOCKER_BASE_IMAGE ?= registry.gitlab.com/gifnksm/docker-mdbook-ja:latest
+export DOCKER_BASE_IMAGE ?= registry.gitlab.com/gifnksm/docker-mdbook-ja:latest
 else ifeq ($(BUILD_ENV),github)
-DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
+export DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
 else
 $(warning BUILD_ENV invalid or unspecified or undetectable)
-DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
+export DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
 endif
 
 .PHONY: default
