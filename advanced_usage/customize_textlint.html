@@ -175,16 +175,19 @@
 <p>textlintはルールを導入することでチェック内容をカスタマイズできます。
 textlintで利用可能なルールの一覧は<a href="https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule#processor-plugin-list">Collection of textlint rule</a>を参照してください。</p>
 <h3 id="プラグインの追加"><a class="header" href="#プラグインの追加">プラグインの追加</a></h3>
-<p>新たにルールを追加したい場合は、<code>docker/Dockerfile</code>を編集して、
+<p>新たにルールを追加したい場合は、<code>docker/setup-build-env</code>を編集して、
 コンテナ内にルールをインストールしてください。
 ルールのインストール方法や<code>.textlintrc</code>の設定方法はルールのドキュメントを参照してください。
 多くのルールは<code>cd /npm &amp;&amp; npm install textlint-rule-*</code> でインストールできます。</p>
 <p>以下に、<a href="https://github.com/textlint-rule/textlint-rule-no-todo">textlint-rule-no-todo</a>プラグインをインストールする場合の例を示します。</p>
-<p>まず、<code>docker/Dockerfile</code>を以下のように編集してください。</p>
-<pre><code class="language-Dockerfile">FROM ${BASE_IMAGE}
+<p>まず、<code>docker/setup-build-env</code>を以下のように編集してください。</p>
+<pre><code class="language-bash">#!/bin/bash
 
+...
+
+# Install npm packages
 # ↓追加
-RUN cd /npm &amp;&amp; npm install textlint-rule-no-todo@2
+cd /npm &amp;&amp; npm install textlint-rule-no-todo@2
 </code></pre>
 <p>次に、<code>.textlintrc</code>に以下を追加してください。</p>
 <pre><code class="language-json">{

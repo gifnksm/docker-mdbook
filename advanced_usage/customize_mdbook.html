@@ -181,16 +181,19 @@ mdBookで利用可能なプラグインの一覧は<a href="https://github.com/r
 <li><strong><a href="https://github.com/Michael-F-Bryan/mdbook-linkcheck">mdbook-linkcheck</a>:</strong> ドキュメント中に無効なリンクが含まれていないかチェックするプラグイン</li>
 </ul>
 <h3 id="プラグインの追加"><a class="header" href="#プラグインの追加">プラグインの追加</a></h3>
-<p>新たにプラグインを追加したい場合は、<code>docker/Dockerfile</code>を編集して、
+<p>新たにプラグインを追加したい場合は、<code>docker/setup-build-env</code>を編集して、
 コンテナ内にプラグインをインストールしてください。
 プラグインのインストール方法や<code>book.toml</code>の設定方法はプラグインのドキュメントを参照してください。
 多くのプラグインは<code>cargo install</code> でインストールできます。</p>
 <p>以下に、<a href="https://github.com/badboy/mdbook-toc">mdbook-toc</a>プラグインをインストールする場合の例を示します。</p>
-<p>まず、<code>docker/Dockerfile</code>を以下のように編集してください。</p>
-<pre><code class="language-Dockerfile">FROM ${BASE_IMAGE}
+<p>まず、<code>docker/setup-build-env</code>を以下のように編集してください。</p>
+<pre><code class="language-bash">#!/bin/bash
 
+...
+
+# Install cargo packages
 # ↓追加
-RUN cargo install mdbook-toc --version 0.9.0 --root /usr/local/bin
+cargo install mdbook-toc --version 0.9.0 --root /usr/local/bin
 </code></pre>
 <p>次に、<code>book.toml</code>に以下を追加してください。</p>
 <pre><code class="language-toml">[preprocessor.toc]
