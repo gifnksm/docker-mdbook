@@ -1,7 +1,4 @@
-image: docker
-
-services:
-    - docker:dind
+image: registry.gitlab.com/gifnksm/docker-mdbook-ja:latest
 
 stages:
     - build
@@ -10,7 +7,9 @@ stages:
 build-book:
     stage: build
     before_script:
-        - apk add make bash git
+        - docker/setup-build-env
+        - apt-get update
+        - apt-get install -y --no-install-recommends make bash git
     script:
         - make build
         - make check -k
