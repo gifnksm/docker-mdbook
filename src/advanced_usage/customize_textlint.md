@@ -20,20 +20,23 @@ textlintで利用可能なルールの一覧は[Collection of textlint rule]を�
 
 ### プラグインの追加
 
-新たにルールを追加したい場合は、`docker/Dockerfile`を編集して、
+新たにルールを追加したい場合は、`docker/setup-build-env`を編集して、
 コンテナ内にルールをインストールしてください。
 ルールのインストール方法や`.textlintrc`の設定方法はルールのドキュメントを参照してください。
 多くのルールは`cd /npm && npm install textlint-rule-*` でインストールできます。
 
 以下に、[textlint-rule-no-todo]プラグインをインストールする場合の例を示します。
 
-まず、`docker/Dockerfile`を以下のように編集してください。
+まず、`docker/setup-build-env`を以下のように編集してください。
 
-```Dockerfile
-FROM ${BASE_IMAGE}
+```bash
+#!/bin/bash
 
+...
+
+# Install npm packages
 # ↓追加
-RUN cd /npm && npm install textlint-rule-no-todo@2
+cd /npm && npm install textlint-rule-no-todo@2
 ```
 
 次に、`.textlintrc`に以下を追加してください。

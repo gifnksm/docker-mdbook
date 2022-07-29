@@ -10,28 +10,41 @@ SHELL := bash
 export UID = $(shell id -u)
 export GID = $(shell id -g)
 
-DOCKER_COMPOSE ?= docker compose
-RUN = $(DOCKER_COMPOSE) run --rm
 GIT_ORIGIN_URL = $(shell git remote get-url origin)
 
+# variables to detect execution environment
+GITLAB_CI ?=
+GITHUB_ACTION ?=
 
-ifdef GITLAB_CI
+ifneq (,$(GITLAB_CI))
 BUILD_ENV ?= gitlab
-else ifdef GITHUB_ACTION
+USE_DOCKER_COMPOSE ?=
+else ifneq (,$(GITHUB_ACTION))
 BUILD_ENV ?= github
+USE_DOCKER_COMPOSE ?= true
 else ifneq (,$(findstring github,$(GIT_ORIGIN_URL)))
 BUILD_ENV ?= github
+USE_DOCKER_COMPOSE ?= true
 else ifneq (,$(findstring gitlab,$(GIT_ORIGIN_URL)))
 BUILD_ENV ?= gitlab
+USE_DOCKER_COMPOSE ?= true
 else
 BUILD_ENV ?= unspecified
+USE_DOCKER_COMPOSE ?= true
 endif
 
-$(info BUILD_ENV=$(BUILD_ENV))
+$(info BUILD_ENV=$(BUILD_ENV) USE_DOCKER_COMPOSE=$(USE_DOCKER_COMPOSE))
 
-ifeq ($(BUILD_ENV),gitlab)
+DOCKER_COMPOSE ?= docker compose
+ifneq (,$(USE_DOCKER_COMPOSE))
+RUN = $(DOCKER_COMPOSE) run --rm
+else
+RUN =
+endif
+
+ifeq (gitlab,$(BUILD_ENV))
 export DOCKER_BASE_IMAGE ?= registry.gitlab.com/gifnksm/docker-mdbook-ja:latest
-else ifeq ($(BUILD_ENV),github)
+else ifeq (github,$(BUILD_ENV))
 export DOCKER_BASE_IMAGE ?= ghcr.io/gifnksm/mdbook-ja:latest
 else
 $(warning BUILD_ENV invalid or unspecified or undetectable)
@@ -41,28 +54,35 @@ endif
 .PHONY: default
 default: build
 
+.PHONY: update-toolchain
+update-toolchain:
+ifneq (,$(USE_DOCKER_COMPOSE))
+update-toolchain: run-docker-compose-build
+endif
 
 ## Build a book from source files (default target)
 .PHONY: build
-build: run-docker-compose-build
+build: update-toolchain
 	$(RUN) mdbook build
 
 ## Delete a built book
 .PHONY: clean
-clean: run-docker-compose-build
+clean: update-toolchain
 	$(RUN) mdbook clean
 
 ## Watch book source files and rebuild a book on changes
 .PHONY: watch
-watch: run-docker-compose-build
+watch: update-toolchain
 	$(RUN) mdbook watch || true
+
 
 ## Serve a book at http://localhost:3000/, and rebuild it on changes
 .PHONY: serve
-serve: run-docker-compose-build
-	$(DOCKER_COMPOSE) up mdbook || true
+serve: update-toolchain
+	$(RUN) mdbook serve || true
 
 
+ifneq (,$(USE_DOCKER_COMPOSE))
 ## Pull the latest version of Docker images
 .PHONY: pull
 pull: run-docker-compose-pull-build
@@ -76,7 +96,7 @@ run-docker-compose-pull-build:
 	$(DOCKER_COMPOSE) build --pull
 
 # if package.json exist, pull target invokes install-lint-tools after run-docker-compose-pull-build
-ifneq ("$(wildcard package.json)", "")
+ifneq (,$(wildcard package.json))
 pull: install-lint-tools
 install-lint-tools: run-docker-compose-pull-build
 endif
@@ -102,6 +122,7 @@ package.json package-lock.json: run-docker-compose-build FORCE
 .PHONY: run-npm-install
 run-npm-install: package.json package-lock.json
 	npm ci
+endif
 
 
 ## Run linters/tests on book source files
@@ -110,17 +131,17 @@ check: build check-markdown check-textlint check-mdbook
 
 ## Run markdownlint on book source files
 .PHONY: check-markdown
-check-markdown: run-docker-compose-build
+check-markdown: update-toolchain
 	$(RUN) markdownlint .
 
 ## Run textlint on book source files
 .PHONY: check-textlint
-check-textlint: run-docker-compose-build
+check-textlint: update-toolchain
 	$(RUN) textlint .
 
 ## Run tests that Rust codes in a book compile without errors
 .PHONY: check-mdbook
-check-mdbook: run-docker-compose-build
+check-mdbook: update-toolchain
 	$(RUN) mdbook test
 
 
@@ -130,12 +151,12 @@ fix: fix-markdown fix-textlint
 
 ## Fix basic errors in book source files with markdownlint
 .PHONY: fix-markdown
-fix-markdown: run-docker-compose-build
+fix-markdown: update-toolchain
 	$(RUN) markdownlint --fix .
 
 ## Fix basic errors in book source files with textlint
 .PHONY: fix-textlint
-fix-textlint: run-docker-compose-build
+fix-textlint: update-toolchain
 	$(RUN) textlint --fix .
 
 
