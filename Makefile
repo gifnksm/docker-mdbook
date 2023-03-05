@@ -89,11 +89,11 @@ pull: run-docker-compose-pull-build
 
 .PHONY: run-docker-compose-build
 run-docker-compose-build:
-	$(DOCKER_COMPOSE) build
+	$(DOCKER_COMPOSE) build mdbook
 
 .PHONY: run-docker-compose-pull-build
 run-docker-compose-pull-build:
-	$(DOCKER_COMPOSE) build --pull
+	$(DOCKER_COMPOSE) build mdbook --pull
 
 # if package.json exist, pull target invokes install-lint-tools after run-docker-compose-pull-build
 ifneq (,$(wildcard package.json))
