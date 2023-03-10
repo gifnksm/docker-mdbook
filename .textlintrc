@@ -1,22 +1,37 @@
 {
-  "filters": {},
-  "rules": {
-    "@textlint-ja/no-insert-dropping-sa": true,
-    "@textlint-ja/no-synonyms": true,
-    "@textlint-rule/no-duplicate-abbr": true,
-    "doubled-spaces": true,
-    "footnote-order": true,
-    "ja-hiragana-fukushi": true,
-    "ja-hiragana-hojodoushi": true,
-    "ja-hiragana-keishikimeishi": true,
-    "ja-no-orthographic-variants": true,
-    "no-empty-section": true,
-    "no-mixed-zenkaku-and-hankaku-alphabet": {
-      "prefer": "半角"
+    "filters": {
+        "comments": true
     },
-    "period-in-list-item": true,
-    "prefer-tari-tari": true,
-    "preset-ja-spacing": true,
-    "preset-ja-technical-writing": true
-  }
+    "rules": {
+        "@textlint-ja/no-insert-dropping-sa": true,
+        "@textlint-ja/no-synonyms": true,
+        "@textlint-rule/no-duplicate-abbr": true,
+        "doubled-spaces": true,
+        "footnote-order": true,
+        "ja-hiragana-fukushi": true,
+        "ja-hiragana-hojodoushi": true,
+        "ja-hiragana-keishikimeishi": true,
+        "ja-no-orthographic-variants": true,
+        "no-empty-section": true,
+        "no-mixed-zenkaku-and-hankaku-alphabet": {
+            "prefer": "半角"
+        },
+        "period-in-list-item": true,
+        "prefer-tari-tari": true,
+        "prh": {
+            "checkBlockQuote": true,
+            "checkCodeComment": [
+                "js",
+                "javascript"
+            ],
+            "checkEmphasis": true,
+            "checkHeader": true,
+            "checkLink": true,
+            "rulePaths": [
+                "./prh.yml"
+            ]
+        },
+        "preset-ja-spacing": true,
+        "preset-ja-technical-writing": true
+    }
 }
