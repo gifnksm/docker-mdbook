@@ -159,26 +159,41 @@
 設定項目については、<a href="https://textlint.github.io/docs/configuring.html">textlintのドキュメント</a>を参照してください。</p>
 <p>mdbook-ja-templateの<code>.textlintrc</code>の内容は以下のとおりです。</p>
 <pre><code class="language-json">{
-  &quot;filters&quot;: {},
-  &quot;rules&quot;: {
-    &quot;@textlint-ja/no-insert-dropping-sa&quot;: true,
-    &quot;@textlint-ja/no-synonyms&quot;: true,
-    &quot;@textlint-rule/no-duplicate-abbr&quot;: true,
-    &quot;doubled-spaces&quot;: true,
-    &quot;footnote-order&quot;: true,
-    &quot;ja-hiragana-fukushi&quot;: true,
-    &quot;ja-hiragana-hojodoushi&quot;: true,
-    &quot;ja-hiragana-keishikimeishi&quot;: true,
-    &quot;ja-no-orthographic-variants&quot;: true,
-    &quot;no-empty-section&quot;: true,
-    &quot;no-mixed-zenkaku-and-hankaku-alphabet&quot;: {
-      &quot;prefer&quot;: &quot;半角&quot;
+    &quot;filters&quot;: {
+        &quot;comments&quot;: true
     },
-    &quot;period-in-list-item&quot;: true,
-    &quot;prefer-tari-tari&quot;: true,
-    &quot;preset-ja-spacing&quot;: true,
-    &quot;preset-ja-technical-writing&quot;: true
-  }
+    &quot;rules&quot;: {
+        &quot;@textlint-ja/no-insert-dropping-sa&quot;: true,
+        &quot;@textlint-ja/no-synonyms&quot;: true,
+        &quot;@textlint-rule/no-duplicate-abbr&quot;: true,
+        &quot;doubled-spaces&quot;: true,
+        &quot;footnote-order&quot;: true,
+        &quot;ja-hiragana-fukushi&quot;: true,
+        &quot;ja-hiragana-hojodoushi&quot;: true,
+        &quot;ja-hiragana-keishikimeishi&quot;: true,
+        &quot;ja-no-orthographic-variants&quot;: true,
+        &quot;no-empty-section&quot;: true,
+        &quot;no-mixed-zenkaku-and-hankaku-alphabet&quot;: {
+            &quot;prefer&quot;: &quot;半角&quot;
+        },
+        &quot;period-in-list-item&quot;: true,
+        &quot;prefer-tari-tari&quot;: true,
+        &quot;prh&quot;: {
+            &quot;checkBlockQuote&quot;: true,
+            &quot;checkCodeComment&quot;: [
+                &quot;js&quot;,
+                &quot;javascript&quot;
+            ],
+            &quot;checkEmphasis&quot;: true,
+            &quot;checkHeader&quot;: true,
+            &quot;checkLink&quot;: true,
+            &quot;rulePaths&quot;: [
+                &quot;./prh.yml&quot;
+            ]
+        },
+        &quot;preset-ja-spacing&quot;: true,
+        &quot;preset-ja-technical-writing&quot;: true
+    }
 }
 </code></pre>
 <h2 id="プラグイン"><a class="header" href="#プラグイン">プラグイン</a></h2>
